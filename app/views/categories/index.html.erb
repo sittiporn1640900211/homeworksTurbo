@@ -1,0 +1,24 @@
+<h1 style="text-align: center;">Categories</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <%= form_with(model: @category, local: true) do |form| %>   <!-- ใช้ @category แทน Category.new -->
+    <%= form.text_field :name, placeholder: "New category name", style: "padding: 5px; width: 200px;" %>
+    <%= form.submit "Create Category", style: "padding: 5px 10px;" %>
+  <% end %>
+</div>
+
+<div style="text-align: center;">
+  <ul style="list-style: none; padding: 0;">
+    <% if @categories.present? %>
+      <% @categories.each do |category| %>
+        <li style="margin-bottom: 10px; display: inline-block;">
+          <%= link_to category.name, category_tasks_path(category), style: "margin-right: 10px;" %>
+          <%= link_to "Edit", edit_category_path(category), style: "margin-right: 10px;" %>
+          <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, style: "color: red;" %>
+        </li>
+      <% end %>
+    <% else %>
+      <p>No categories found.</p>
+    <% end %>
+  </ul>
+</div>

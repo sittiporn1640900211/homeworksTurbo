@@ -1,0 +1,9 @@
+<% if @task %>
+  <h1>Task Details</h1>
+  <p>Name: <%= @task.name %></p>
+  <p>Status: <%= @task.status %></p>
+<% else %>
+  <p>Task not found</p>
+<% end %>
+
+<%= link_to 'Back to Tasks', tasks_path %>

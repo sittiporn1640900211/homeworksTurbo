@@ -1,0 +1,9 @@
+<h1><%= @category.name %></h1>
+
+<p>
+  <strong>Category Name:</strong>
+  <%= @category.name %>
+</p>
+
+<%= link_to 'Back to Categories', categories_path %>  
+<%= link_to 'Delete Category', category_path(@category), method: :delete, data: { confirm: 'Are you sure?' }, style: "color: red;" %> 
